@@ -48,20 +48,51 @@ cc_pet_shop = {
 def get_pet_shop_name(list):
   return cc_pet_shop["name"]
 
-get_pet_shop_name(cc_pet_shop)
-
-
 
 def get_total_cash(list):
-    return cc_pet_shop["admin"]["total_cash"]
-
+    return list["admin"]["total_cash"]
 get_total_cash(cc_pet_shop)
+
+
+def add_or_remove_cash(list, cash):
+  list["admin"]["total_cash"] += cash
+
+add_or_remove_cash(cc_pet_shop, 10)
+
+def add_or_remove_cash(list, cash):
+    list["admin"]["total_cash"] += cash
+
+add_or_remove_cash(cc_pet_shop, -10)
+
+def get_pets_sold(list):
+    return list["admin"]["pets_sold"]
+
+get_pets_sold(cc_pet_shop)
+
+def increase_pets_sold(list, sale):
+    list["admin"]["pets_sold"] += sale
+
+increase_pets_sold(cc_pet_shop, 2)
+
+def get_stock_count(list):
+    return len(list["pets"])
+get_stock_count(cc_pet_shop)
+
+
+
     
 
 
 
 
+
+
+
     
+    
+
+
+
 
 
 

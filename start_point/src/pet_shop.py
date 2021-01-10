@@ -1,82 +1,86 @@
 # WRITE YOUR FUNCTIONS HERE
-cc_pet_shop = {
-            "pets": [
-                {
-                    "name": "Sir Percy",
-                    "pet_type": "cat",
-                    "breed": "British Shorthair",
-                    "price": 500
-                },
-                {
-                    "name": "King Bagdemagus",
-                    "pet_type": "cat",
-                    "breed": "British Shorthair",
-                    "price": 500
-                },
-                {
-                    "name": "Sir Lancelot",
-                    "pet_type": "dog",
-                    "breed": "Pomsky",
-                    "price": 1000,
-                },
-                {
-                    "name": "Arthur",
-                    "pet_type": "dog",
-                    "breed": "Husky",
-                    "price": 900,
-                },
-                {
-                    "name": "Tristan",
-                    "pet_type": "cat",
-                    "breed": "Basset Hound",
-                    "price": 800,
-                },
-                {
-                    "name": "Merlin",
-                    "pet_type": "cat",
-                    "breed": "Egyptian Mau",
-                    "price": 1500,
-                }
-            ],
-            "admin": {
-                "total_cash": 1000,
-                "pets_sold": 0,
-            },
-            "name": "Camelot of Pets"
-        }
-
-def get_pet_shop_name(list):
-  return cc_pet_shop["name"]
 
 
-def get_total_cash(list):
-    return list["admin"]["total_cash"]
-get_total_cash(cc_pet_shop)
+def get_pet_shop_name(pet_shop):
+    return pet_shop["name"]
 
 
-def add_or_remove_cash(list, cash):
-  list["admin"]["total_cash"] += cash
 
-add_or_remove_cash(cc_pet_shop, 10)
 
-def add_or_remove_cash(list, cash):
-    list["admin"]["total_cash"] += cash
+def get_total_cash(pet_shop):
+    return pet_shop["admin"]["total_cash"]
 
-add_or_remove_cash(cc_pet_shop, -10)
 
-def get_pets_sold(list):
-    return list["admin"]["pets_sold"]
 
-get_pets_sold(cc_pet_shop)
+def add_or_remove_cash(pet_shop, cash):
+  pet_shop["admin"]["total_cash"] += cash
 
-def increase_pets_sold(list, sale):
-    list["admin"]["pets_sold"] += sale
 
-increase_pets_sold(cc_pet_shop, 2)
 
-def get_stock_count(list):
-    return len(list["pets"])
-get_stock_count(cc_pet_shop)
+def add_or_remove_cash(pet_shop, cash):
+    pet_shop["admin"]["total_cash"] += cash
+
+
+
+def get_pets_sold(pet_shop):
+    return pet_shop["admin"]["pets_sold"]
+
+
+
+def increase_pets_sold(pet_shop, sale):    
+    pet_shop["admin"]["pets_sold"] += sale
+    #alternative
+    # pets_sold = get_pets_sold(pet_shop)
+    # pets_sold += sale
+
+
+
+def get_stock_count(pet_shop):
+    return len(pet_shop["pets"])
+
+
+
+def get_pets_by_breed(pet_shop, breed):
+    pets = []
+    for pet in pet_shop["pets"]:
+        if pet ["breed"] == breed:
+            pets.append(pet)
+    return pets
+
+def find_pet_by_name(pet_shop, name):
+    for pet in pet_shop["pets"]:
+        if pet["name"] == name:
+            return pet
+    return None
+
+def remove_pet_by_name(pet_shop, name):
+    pet = find_pet_by_name(pet_shop, name)
+    pet_shop ["pets"].remove(pet)
+
+def add_pet_to_stock(pet_shop, new_pet):
+    stock = get_stock_count(pet_shop)
+    pet_shop["pets"].append(new_pet)
+
+def get_customer_cash(customer):
+    return customer["cash"]
+
+def remove_customer_cash(customer, cash_removed):
+    customer["cash"] -= cash_removed
+    
+    
+def get_customer_pet_count(customer):
+    return len(customer["pets"])
+
+def add_pet_to_customer(customer, new_pet):
+    count = get_customer_pet_count(customer)
+    customer["pets"].append(new_pet)
+    
+
+    
+    
+    
+
+
 
 
 
